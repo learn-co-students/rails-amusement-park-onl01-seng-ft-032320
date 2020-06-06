@@ -1,0 +1,27 @@
+
+    
+    <%= form_for @attraction do |f| %>
+    
+    <div class='form-group'>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class:"form-control" %><br>
+    </div>
+    <div class='form-group'>
+    <%= f.label 'Height Requirement (in inches)' %><br>
+    <%= f.number_field :min_height, class:"form-control" %><br>
+    </div>
+    <div class='form-group'>
+    <%= f.label 'How fun is it? (1-5 scale)' %><br>
+    <%= f.number_field :happiness_rating, class:"form-control" %><br>
+    </div>
+    <div class='form-group'>
+    <%= f.label 'How nausea-inducing is it?(1-5 scale)' %><br>
+    <%= f.number_field :nausea_rating, class:"form-control" %><br>
+    </div>
+    <div class='form-group'>
+    <%= f.label 'How many tickets does it cost?'%><br>
+    <%= f.number_field :tickets, class:"form-control" %><br>
+    </div>
+    <%= f.submit attraction.persisted? ? 'Update Attraction' : 'Create Attraction', class:"btn btn-primary"%><br>
+    <% end %>
+</div>
