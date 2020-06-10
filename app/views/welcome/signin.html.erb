@@ -1,0 +1,12 @@
+<%= form_tag  signin_path do %>
+    <label><strong>Your name:</strong></label>
+    <%= collection_select :user, :name, User.all, :name, :name, {prompt: "Please select your username from this dropdown"} %>
+    <br>
+    <label><strong>Password:</strong></label>
+   
+    <%= password_field_tag :password %>
+    <br>
+    <%= submit_tag "Sign In"%>
+
+
+<% end %>

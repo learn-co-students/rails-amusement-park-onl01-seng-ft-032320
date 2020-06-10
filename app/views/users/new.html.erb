@@ -1,0 +1,25 @@
+<%= form_for @user do |f| %>
+    <p><strong>Name</strong></p>
+    <%=f.text_field :name%>
+
+    <p><strong>Height (in inches)</strong></p>
+    <%=f.number_field(:height, min: 0)%>
+    
+    <p><strong>How happy are you? (1-5 scale)</strong></p>
+    <%=f.number_field(:happiness ,min:1, max:5 )%>
+    
+    <p><strong>How nauseous are you? (1-5 scale)</strong></p>
+    <%=f.number_field(:nausea ,min:1, max:5 )%>
+
+    <p><strong>How many dollars are in your pocket?</strong></p>
+    <%=f.number_field(:tickets, min: 0)%>
+
+    <p><strong>Check box if you are a theme park owner</strong></p>
+    <%=f.check_box :admin%>
+
+    <p><strong>Password</strong></p>
+    <%=f.password_field :password%>
+
+    <br>
+    <%= f.submit %>
+<% end %>
