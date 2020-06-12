@@ -1,0 +1,23 @@
+<%= form_for @attraction do |f| %>
+    <label><strong>Name</strong></label><br>
+    <%= f.text_field :name %>
+    <br>
+
+    <label><strong>Height Requirement (in inches)</strong></label><br>
+    <%= f.number_field(:min_height, min: 0) %>
+    <br>
+
+    <label><strong>How fun is it? (1-5 scale)</strong></label><br>
+    <%= f.number_field(:happiness_rating, min: 0, max: 5) %>
+    <br>
+
+    <label><strong>How nausea-inducing is it? (1-5 scale)</strong></label><br>
+    <%= f.number_field(:nausea_rating, min: 0, max: 5) %>
+    <br>
+
+    <label><strong>How many tickets does it cost?</strong></label><br>
+    <%= f.number_field(:tickets, min: 0) %>
+    <br>
+
+    <%= f.submit %>
+<% end %>
