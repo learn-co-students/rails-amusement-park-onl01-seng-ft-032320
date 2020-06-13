@@ -1,14 +1,21 @@
-<% if @user.admin %>
-<p><strong>ADMIN</strong></p>
+<% if @user.admin%>
+<h1>ADMIN</h1>
 <% end %>
-<% if flash[:alert] %>
-    <p><%= flash[:alert] %></p>
+<br>
+<br>
+Hello, <%= @user.name %>
+<br>
+<%= alert %>
+<br>
+<% if !@user.admin%>
+   Mood: <%= @user.mood%>
+   <br>
+   Tickets: <%= @user.tickets%>
+   <br>
+   Height: <%= @user.height%>
 <% end %>
-<p><strong>Name: </strong><%= @user.name %></p>
-<p><strong>Tickets: </strong><%= @user.tickets %></p>
-<p><strong>Mood: </strong>
-<% unless @user.admin %>
-    <%= @user.mood %></p>
-<% end %>
-<p><strong>Height: </strong><%= @user.height %> inches</p>
-<a href="<%= attractions_url %>">See attractions</a>
+
+<br>
+
+<%= link_to 'See attractions', attractions_path %>
+<%= link_to 'Log Out', signout_path%>

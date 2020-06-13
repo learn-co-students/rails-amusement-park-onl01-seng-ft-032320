@@ -1,41 +1,35 @@
-class AttractionsController < ApplicationController 
-    before_action :set_attraction, only: [:show, :edit, :update]
-    
+class AttractionsController < ApplicationController
     def index
-        @attractions = Attraction.all
+       @attractions = Attraction.all
+       @user = current_user
     end
-
-    def show 
+ 
+    def new
+       @attraction = Attraction.new
     end
-
-    def new 
-        @attraction = Attraction.new
-    end
-
+ 
     def create
-        @attraction = Attraction.new(attraction_params)
-        if @attraction.save
-            redirect_to @attraction
-        else 
-            redirect_to attraction_new_path
-        end
+       attraction = Attraction.create(attraction_params)
+         redirect_to attraction
+     end
+ 
+    def show
+       @attraction = Attraction.find_by(id: params[:id])
+       @user = current_user
     end
-
-    def edit 
+ 
+    def edit
+       @attraction = Attraction.find_by(id: params[:id])
     end
-
-    def update 
-        @attraction.update(attraction_params)
-        redirect_to @attraction
-    end 
-
+ 
+    def update
+       @attraction = Attraction.find_by(id: params[:id])
+       @attraction.update(attraction_params)
+       redirect_to @attraction 
+    end
+ 
     private
-
-    def set_attraction
-        @attraction = Attraction.find_by_id(params[:id])
-    end
-
     def attraction_params
-        params.require(:attraction).permit(:name, :happiness_rating, :nausea_rating, :min_height, :tickets)
+       params.require(:attraction).permit(:name, :tickets, :nausea_rating, :happiness_rating, :min_height)
     end
-end
+ end

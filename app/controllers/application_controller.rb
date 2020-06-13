@@ -1,19 +1,18 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  def home 
-
+  private
+  def user_params
+    params.require(:user).permit(:name, :password, :height, :happiness, :nausea, :tickets, :admin)
   end
 
-
-  
-  def current_user 
-    @user = User.find_by(id: session[:user_id])
-  end
-  
   def logged_in?
-    !!current_user
+    redirect_to root_path unless !!session[:user_id]
+  end
+
+  def current_user
+    user ||= User.find_by(id: session[:user_id])
   end
   
-  helper_method :current_user
+
 end
