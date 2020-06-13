@@ -1,0 +1,9 @@
+<%= form_for :user, url: "/sessions", method: :post do |f| %>
+   <%= f.label "Name" %>
+   <%= f.collection_select :name, User.all, :id, :name%>
+   <br>
+   <%= f.label "Password" %>
+   <%= password_field_tag "password" %>
+   <br>
+   <%= f.submit "Sign In" %>
+<% end %>
