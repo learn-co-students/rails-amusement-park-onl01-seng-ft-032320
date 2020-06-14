@@ -16,9 +16,11 @@
     <%= f.label "How many dollars are in your pocket? "%> <br>
     <%=f.text_field :tickets%><br>
 
+    <label for="user_admin">Check box if you are a theme park owner</label>
+    <%= f.check_box  :admin %><br><br>
+
     <%= f.label "Password"%> <br>
     <%=f.password_field :password%><br>
-    <%= f.label "Password Confirmation"%> <br>
-    <%=f.password_field :password_confirmation%><br>
-    <%= f.submit %>
+
+    <%= f.submit  %>
 <%end%>

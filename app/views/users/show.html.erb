@@ -1,3 +1,12 @@
+<p><%= flash[:notice]%></p>
+<br><br>
+
+
+<% if @user.admin %>
+    <p><strong>ADMIN</strong></p>
+<%end%> 
+
+
 <label>Name: </label>
 <p><%=@user.name%></p><br><br>
 

@@ -2,6 +2,7 @@ class Ride < ActiveRecord::Base
     belongs_to :attraction
     belongs_to :user
 
+    
 
     def take_ride
 
@@ -18,7 +19,7 @@ class Ride < ActiveRecord::Base
  
             self.user.update(tickets: tickets, nausea: nausea, happiness: happiness) 
 
-
+            "Thanks for riding the #{self.attraction.name}!"
         end 
     end 
 

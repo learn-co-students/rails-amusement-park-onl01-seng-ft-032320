@@ -22,13 +22,13 @@
           <a class="navbar-brand" href="<%= user_path(current_user) %>"><%= User.find_by_id(current_user).name %>'s profile</a>
 
             
-        <a class="navbar-brand" rel="nofollow" data-method="delete" href="/session">Log Out</a> 
+        <a class="navbar-brand" rel="nofollow" data-method="delete" href="/sessions/<%=current_user%>">Log Out</a> 
 
         
 
         <% else %>
-          <a class="navbar-brand" href="<%= new_user_path %>">Sing Up</a>
-          <a class="navbar-brand" href="<%= new_session_path %>">Log in</a>
+          <a class="navbar-brand" href="<%= new_user_path %>">Sign Up</a>
+          <a class="navbar-brand" href="<%= signin_path %>">Log in</a>
         <%end%>
         
         </div>
