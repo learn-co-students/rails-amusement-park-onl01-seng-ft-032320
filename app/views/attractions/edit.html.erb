@@ -1,0 +1,34 @@
+<div class="container" role="main">
+    <h1>New attraction</h1>
+    <%= form_for @attraction, html: {class: "new_attraction", id: "new_attraction"} do |f| %>
+        <div class="form-group">
+            <%= f.label "Name"%>
+            <%= f.text_field :name, class: "form-control", id: "attraction_name"%>
+        </div>
+
+        <div class="form-group">
+            <%= f.label "Height Requirement (in inches)"%>
+            <%= f.number_field :min_height, class: "form-control", id: "attraction_min_height"%>
+        </div>
+
+        <div class="form-group">
+            <%= f.label "How fun is it? (1-5 scale)"%>
+            <%= f.number_field :happiness_rating, class: "form-control", id: "attraction_happiness_rating"%>
+        </div>
+
+        <div class="form-group">
+            <%= f.label "How nausea-inducing is it? (1-5 scale)"%>
+            <%= f.number_field :nausea_rating, class: "form-control", id: "attraction_nausea_rating"%>
+        </div>
+
+        <div class="form-group">
+            <%= f.label "How many tickets does it cost?"%>
+            <%= f.number_field :tickets, class: "form-control", id: "attraction_tickets"%>
+        </div>
+
+        <div class="actions">
+            <%= f.submit %>
+        </div>
+    <%end%>
+</div>
+
