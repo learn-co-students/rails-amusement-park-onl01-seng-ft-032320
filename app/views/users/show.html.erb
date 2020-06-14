@@ -1,0 +1,22 @@
+<div class="info">
+<% if current_user.admin %>
+<p>ADMIN</p>
+<p><%= @user.name %></p>
+<p><%= link_to "See attractions", attractions_path %> </p>
+<%= link_to "Log Out", signout_path, method: 'delete'%>
+<%else%>
+
+
+  <%= flash.alert %>
+
+
+
+    <p><strong>Name:</strong> <%= current_user.name %> </p>
+    <p><strong>Tickets:</strong> <%= current_user.tickets %> </p>
+    <p><strong>Mood:</strong> <%= current_user.mood %> </p>
+    <p><strong>Height:</strong> <%= current_user.height %> inches </p>
+    <%= link_to "See attractions", attractions_path %>
+    <br>
+    <%= link_to "Log Out", signout_path, method: 'delete'%>
+<%end%>
+</div>
