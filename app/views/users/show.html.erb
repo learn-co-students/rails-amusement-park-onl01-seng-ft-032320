@@ -1,0 +1,23 @@
+<% if flash[:notice]%>
+    <p><%= flash[:notice] %></p>
+<% end %>
+
+<div class="info">
+
+<% if current_user.admin %>
+    <p>ADMIN</p>
+    <p><%= @user.name %></p>
+    <%= link_to "See attractions", attractions_path %><br>
+    <%= link_to "Log Out", signout_path, method: 'delete' %>
+
+<% else %>
+
+    <p><strong>Name:</strong> <%= @user.name %> </p>
+    <p><strong>Tickets:</strong> <%= @user.tickets %> </p>
+    <p><strong>Mood:</strong> <%= @user.mood %> </p>
+    <p><strong>Height:</strong> <%= @user.height %> inches </p>
+    <%= link_to "See attractions", attractions_path %><br>
+    <%= link_to "Log Out", signout_path, method: 'delete'%>
+
+<% end %>
+</div>
