@@ -3,14 +3,24 @@
 <%= f.text_field :name %>
 
 <%= f.label :password %>
-<%= f.text_field :name %>
+<%= f.text_field :password %>
 
-<%= f.label :password %>
-<%= f.text_field :name %>
+<%= f.label :nausea %>
+<%= f.number_field :nausea %>
 
+<%= f.label :happiness %>
+<%= f.number_field :happiness %>
 
+<%= f.label :height %>
+<%= f.number_field :height %>
 
-<%= f.submit "Submit" %>
+<%= f.label :tickets %>
+<%= f.number_field :tickets %>
+
+<%= f.label :admin %>
+<%= f.check_box :admin %>
+
+<%= f.submit "Create User" %>
 
 
 

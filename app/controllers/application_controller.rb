@@ -1,22 +1,23 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-
-  configure do
-    set :public_folder, 'public'
-    set :views, 'app/views'
-    enable :sessions
-    set :session_secret, "secret"
-  end
-
+  before_action :go_home
+  helper_method :current_user
 
   
-  helpers do
-    def logged_in?
-      !!session[:user_id]
+  
+  
+  private
+  
+    def go_home
+      redirect_to root_path unless verified
+    end
+
+    def verified
+      !!current_user
     end
 
     def current_user
-      @user ||= User.find(session[:user_id]) if logged_in?
+      User.find_by(id: session[:user_id]) 
     end
-  end
+ 
 end
